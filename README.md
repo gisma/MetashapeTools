@@ -33,7 +33,7 @@ Follow the installation guide and you will find a new Menu Item in Metashape mai
 
 The default workflows are primarily intended for processing large image sets from low budget drone surveys. The problem that arises here is the huge amount of images with numerous starts and landings and a fixed continuous camera system (time lapse 2 sec). This way, 10k images are quickly collected, 80% of which are oversampled or of low image quality. The workflows identify poor image quality and reduce the number of images by an inverse camera position calculation based on the preliminary surface model. This dramatically reduces the number of images, eliminates unusable taxiways and takeoff and landing sequences, and activates optimized cameras. In this way, the quality and reproducibility can be improved in a reproducible manner. At the same time, processing time is reduced by one to two orders of magnitude. 
 
-### Load images 
+### Preliminary Task - Load images 
 All functions are based on image data so first do **always** the following:
 
 1. Add the images you want to process to the Chunk.
@@ -41,9 +41,9 @@ All functions are based on image data so first do **always** the following:
 3. Save the project using a meaningful name
 
 
-### Worflow with GCPs
+### Workflow integrating Ground Control Points (GCPs)
 
-#### Worflow Orthoimage with GCP step 1 (apply GCP)
+#### Orthoimage with GCP - step 1 preprocessing
 * Start the script `Ortho-1 (preGCP)`.
   * Calculate a first alignment and mesh using the following parameters: 
   * Key Point Limit: 10000
@@ -58,12 +58,12 @@ All functions are based on image data so first do **always** the following:
 
 
 
-#### Worflow Orthoimage with GCP step 2 (apply GCP)
+#### Orthoimage with GCP - step 2 link GCP to images
 
 After the script is finished, import your Ground Control Points (GCP) and align them manually in at least 4 images. Use about 30 % of the GCP as independent Checkpoints by unticking the checkbox in the Reference Pane.
 
 
-#### Worflow Orthoimage with GCP step 3 (create Orthoimage)
+#### Orthoimage with GCP - step 3 create Orthoimage
 
 * Use `Toolchain Ortho-2 (postGCP)`. This includes the following steps:
   * optimize sparse cloud
