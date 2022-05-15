@@ -77,7 +77,7 @@ def helpmsg():
 
 Metashape.app.addMenuSeparator("MetashapeTools/Standard Workflows")
 Metashape.app.addMenuItem("MetashapeTools/Reduce Overlap", menufasteCreateSparse)
-Metashape.app.addMenuItem("MetashapeTools/Subset Images", menuSubsetImages)
+# Metashape.app.addMenuItem("MetashapeTools/Subset Images", menuSubsetImages)
 Metashape.app.addMenuItem("MetashapeTools/Export Marker Error", menuError)
 Metashape.app.addMenuItem("MetashapeTools/Export Tiepoint Error", menuTiepoints)
 Metashape.app.addMenuItem("MetashapeTools/Optimize Sparsecloud", menuOptimizeSparsecloud)
