@@ -10,15 +10,17 @@ from msFunctions.msExportTiepointError import *
 def Toolchain01():
     
     ac = Metashape.app.getBool("Process all Chunks?")
-    
+    overl = 8
     if ac:
+
         for chunk in Metashape.app.document.chunks:
-            fastCreateSparse(chunk)
+            fastCreateSparse(chunk,overl = overl)
             createSparse(chunk)
     else:
+
         chunk = Metashape.app.document.chunk
-        fastCreateSparse(chunk)
+        fastCreateSparse(chunk,overl = overl)
         createSparse(chunk)
 
 
-Metashape.app.addMenuItem("MetashapeTools/Standard Workflows/Toolchain Part 1", Toolchain01)
+Metashape.app.addMenuItem("MetashapeTools/Standard Workflows/Toolchain Ortho-1 (preGCP)", Toolchain01)

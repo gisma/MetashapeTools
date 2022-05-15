@@ -9,7 +9,7 @@ from msFunctions.msExportTiepointError import *
 from msFunctions.msOptimizeSparsecloud import *
 from msFunctions.msReproducibility import *
 from msFunctions.msDenseCloud import *
-
+import textwrap
 
 # helper for optional all chunk processing:
 def menuHelper(fun):
@@ -71,9 +71,9 @@ def menuReproducibility():
     
     repro(chunk, RE = RE, k = k)
 
-
 def helpmsg():
-    Metashape.app.messageBox("https://github.com/gisma/MetashapeTools/blob/master/docs/index.md")
+    message = "More information at: \                  https://github.com/gisma/MetashapeTools"
+    Metashape.app.messageBox(textwrap.fill(message, 40,drop_whitespace=False))
 
 Metashape.app.addMenuSeparator("MetashapeTools/Standard Workflows")
 Metashape.app.addMenuItem("MetashapeTools/Reduce Overlap", menufasteCreateSparse)
@@ -84,6 +84,8 @@ Metashape.app.addMenuItem("MetashapeTools/Optimize Sparsecloud", menuOptimizeSpa
 Metashape.app.addMenuItem("MetashapeTools/Reproducibility", menuReproducibility)
 Metashape.app.addMenuItem("MetashapeTools/Densecloud", menuDensecloud)
 Metashape.app.addMenuItem("MetashapeTools/Help", helpmsg)
+
+
 
 
 
