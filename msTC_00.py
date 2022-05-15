@@ -14,11 +14,11 @@ def Toolchain01():
 	if ac:
 		for chunk in Metashape.app.document.chunks:
 			fastCreateSparse(chunk)
-			createSparse(chunk)
+            reduceO(chunk)
+            
 	else:
 		chunk = Metashape.app.document.chunk
 		fastCreateSparse(chunk)
-		createSparse(chunk)
+        reduceO(chunk)
 
-
-Metashape.app.addMenuItem("MetashapeTools/Toolchain Part 1", Toolchain01)
+Metashape.app.addMenuItem("MetashapeTools/Toolchain Part 1", Toolchain00)

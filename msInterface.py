@@ -54,7 +54,9 @@ def menuDensecloud():
 	else:
 		createDenseCloud(chunk)
 
-
+def menufasteCreateSparse():
+	chunk = Metashape.app.document.chunk
+	fastCreateSparse(chunk)
 
 
 def menuOptimizeSparsecloud():
@@ -69,7 +71,7 @@ def menuReproducibility():
 	
 	repro(chunk, RE = RE, k = k)
 
-
+Metashape.app.addMenuItem("MetashapeTools/Reduce Overlap", menufasteCreateSparse)
 Metashape.app.addMenuItem("MetashapeTools/Subset Images", menuSubsetImages)
 Metashape.app.addMenuItem("MetashapeTools/Export Marker Error", menuError)
 Metashape.app.addMenuItem("MetashapeTools/Export Tiepoint Error", menuTiepoints)
