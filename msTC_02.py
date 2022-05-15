@@ -25,4 +25,4 @@ def Toolchain02():
       exportMarker(chunk)
 
 
-Metashape.app.addMenuItem("MetashapeTools/Toolchain Part 2", Toolchain02)
+Metashape.app.addMenuItem("MetashapeTools/Standard Workflows/Toolchain Part 2", Toolchain02)

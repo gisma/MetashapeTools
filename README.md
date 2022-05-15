@@ -1,5 +1,5 @@
 # MetashapeTools
-Scripts and Utilities for Agisoft Metashape
+Scripts, Utilities and default otimized workflows for Agisoft Metashape
 
 
 
@@ -12,7 +12,7 @@ Copy the content of this repo to `~/.local/share/Agisoft/Metashape Pro/scripts/`
 ```bash
 
 cd ~/.local/share/Agisoft/Metashape Pro/scripts
-git clone https://github.com/envima/MetashapeTools.git .
+git clone https://github.com/gisma/MetashapeTools.git .
 
 ```
 

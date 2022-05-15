@@ -7,18 +7,23 @@ from msFunctions.msSparseCloud import *
 from msFunctions.msExportTiepointError import *
 
 
-def Toolchain01():
-	
-	ac = Metashape.app.getBool("Process all Chunks?")
-	
-	if ac:
-		for chunk in Metashape.app.document.chunks:
-			fastCreateSparse(chunk)
-            reduceO(chunk)
-            
-	else:
-		chunk = Metashape.app.document.chunk
-		fastCreateSparse(chunk)
-        reduceO(chunk)
+def Toolchain00():
+  ac = Metashape.app.getBool("Process all Chunks?")
+  if ac:
+      for chunk in Metashape.app.document.chunks:
+          createSparse(chunk)
+          optimizeSparsecloud(chunk)
+          sparse2ortho(chunk)
+          exportOrtho(chunk)
+          exportSeamlines(chunk)
+          exportMarker(chunk)
+  else:
+      chunk = Metashape.app.document.chunk
+      createSparse(chunk)
+      optimizeSparsecloud(chunk)
+      sparse2ortho(chunk)
+      exportOrtho(chunk)
+      exportSeamlines(chunk)
+      exportMarker(chunk)
 
-Metashape.app.addMenuItem("MetashapeTools/Toolchain Part 1", Toolchain00)
+Metashape.app.addMenuItem("MetashapeTools/Standard Workflows/Toolchain noGCP", Toolchain00)
