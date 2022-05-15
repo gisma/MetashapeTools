@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jul  4 10:00:09 2019
 
+@author: marvin
+
+update: chris 2022-05-16
+
+"""
 
 import Metashape
 from msFunctions.msSparseCloud import *
