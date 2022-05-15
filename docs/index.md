@@ -49,11 +49,11 @@ After the script is finished, import your Ground Control Points (GCP) and align 
   * create Orthomosaic
 	  * surface: mesh
 	  * refine seamlines = True
-  * export of Orthomosaic, Seamlines and Marker error
-  * export of report
+  * export Orthomosaic, Seamlines and Marker error
+  * export report
 
 ### Worflow Orthoimage without GCP
-If you do NOT have Ground Control Points you can run an optimized wiorkflow of ortho image production by one click.
+If you do NOT have Ground Control Points you can run an optimized workflow of orthoimages production by one click.
 1. Load images as above (you may load several distinct chunks for e.g. different time slots)
 2. Start the script `Toolchain noGCP`
 
@@ -74,10 +74,11 @@ This will do the following steps:.
 * create Orthomosaic
 	* surface: mesh
 	* refine seamlines = True
-* export of Orthomosaic, Seamlines and Marker error
-* export of a report
+* export Orthomosaic, Seamlines and Marker error
+* export a report
 
-### Othomosaic from Sparse Cloud
+
+### Orthomosaic from Sparse Cloud
 If you do not want to optimize the camera positions and the sparse cloud you should choose `Toolchain Toolchain Ortho from Sparse`. This includes the following steps:
 
 * create 2.5D Mesh
@@ -90,7 +91,7 @@ If you do not want to optimize the camera positions and the sparse cloud you sho
 
 It is recommended run beforehand the `Optimize Sparsecloud` script. This will print out a Reprojection Error for which the checkpoint error reach its minimum.
 
-## Convinience Functions
+## Special Tasks
 
 ### Orthomosaic Reproducibility
 
