@@ -9,17 +9,18 @@ Created on Mon Jul  8 09:47:53 2019
 import Metashape
 
 # control: do with all chunks or just the active one
-def sparse2ortho(chunk, doc = Metashape.app.document):
+def sparse2ortho(chunk, orthoRes, doc = Metashape.app.document):
     
     # create mesh
     chunk.resetRegion()
+    crs=Metashape.OrthoProjection("EPSG::25832")
     chunk.buildModel(surface_type=Metashape.SurfaceType.HeightField, source_data = Metashape.DataSource.PointCloudData,
                      interpolation = Metashape.Interpolation.EnabledInterpolation, face_count = Metashape.FaceCount.HighFaceCount)
-    chunk.smoothModel(35)	
+    chunk.smoothModel(35)   
     
     # build ortho
     chunk.resetRegion()
-    chunk.buildOrthomosaic(surface_data=Metashape.ModelData, refine_seamlines = True)
+    chunk.buildOrthomosaic(surface_data=Metashape.ModelData, refine_seamlines = True,resolution=orthoRes,projection=crs)
     
 
 #def dense2ortho(chunk, doc = Metashape.app.document, orthoRes = 0.05):

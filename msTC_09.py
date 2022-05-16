@@ -15,7 +15,7 @@ def Toolchain09():
           optimizeSparsecloud(chunk)
           sparse2ortho(chunk)
           exportOrtho(chunk)
-          exportSeamlines(chunk)
+          #exportSeamlines(chunk)
           exportMarker(chunk)
   else:
       chunk = Metashape.app.document.chunk
@@ -23,7 +23,7 @@ def Toolchain09():
       optimizeSparsecloud(chunk)
       sparse2ortho(chunk)
       exportOrtho(chunk)
-      exportSeamlines(chunk)
+      #exportSeamlines(chunk)
       exportMarker(chunk)
 
-Metashape.app.addMenuItem("MetashapeTools/Standard Workflows/Toolchain Ortho-noGCP", Toolchain09)
+Metashape.app.addMenuItem("MetashapeTools/Standard Workflows/Orthoimage without GCPs", Toolchain09)

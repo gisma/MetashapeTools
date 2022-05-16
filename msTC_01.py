@@ -23,4 +23,4 @@ def Toolchain01():
         createSparse(chunk)
 
 
-Metashape.app.addMenuItem("MetashapeTools/Standard Workflows/Toolchain Ortho-1 (preGCP)", Toolchain01)
+Metashape.app.addMenuItem("MetashapeTools/Standard Workflows/Orthoimage-Step1 (preGCP)", Toolchain01)
