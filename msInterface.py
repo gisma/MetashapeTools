@@ -44,12 +44,14 @@ def menuHelper(fun):
     
 
 
-def show_message(msg):
-    msgBox = QMessageBox.Help()
+def show_message():
+    msgBox = QMessageBox()
+    link = "https://github.com/gisma/MetashapeTools"
+    msg = "Get more information: <a href='%s'>GitHub Repo</a>" % link
     print(msg)
     msgBox.setText(msg)
     msgBox.exec()
-#menuSubsetImages = menuHelper(subsetImages)
+    #menuSubsetImages = menuHelper(subsetImages)
 
 
 def menuError():
@@ -99,24 +101,24 @@ def menuReproducibility():
     repro(chunk, RE = RE, k = k)
 
 def helpmsg():
-    show_message("More information at:\nhttps://github.com/gisma/MetashapeTools")
+    show_message()
     
     
 def Toolchain03():
-  orthoRes = Metashape.app.getFloat("Target Resolution of Orthoimage in meter?",value =0.05)
-  ac = Metashape.app.getBool("Process all Chunks?")
-  if ac:
-    for chunk in Metashape.app.document.chunks:
-      sparse2ortho(chunk,orthoRes)
-      exportOrtho(chunk)
-      #exportSeamlines(chunk)
-      exportMarker(chunk,orthoRes)
-  else:
-      chunk = Metashape.app.document.chunk
-      sparse2ortho(chunk,orthoRes)
-      exportOrtho(chunk)
-      #exportSeamlines(chunk)
-      exportMarker(chunk)
+    orthoRes = Metashape.app.getFloat("Target Resolution of Orthoimage in meter?",value =0.05)
+    ac = Metashape.app.getBool("Process all Chunks?")
+    if ac:
+        for chunk in Metashape.app.document.chunks:
+            sparse2ortho(chunk,orthoRes)
+            exportOrtho(chunk)
+            #exportSeamlines(chunk)
+            exportMarker(chunk,orthoRes)
+    else:
+        chunk = Metashape.app.document.chunk
+        sparse2ortho(chunk,orthoRes)
+        exportOrtho(chunk)
+        #exportSeamlines(chunk)
+        exportMarker(chunk)
 
 Metashape.app.addMenuSeparator("Workflow+/Tools+")   
 Metashape.app.addMenuItem("Workflow+/Tools+/Reduce Overlap", menufasteCreateSparse)
