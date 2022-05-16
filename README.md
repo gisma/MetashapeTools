@@ -41,48 +41,51 @@ All functions are based on image data so first do **always** the following:
 3. Save the project using a meaningful name
 
 
-### Workflow integrating Ground Control Points (GCPs)
+### Orthoimage Workflow integrating Ground Control Points (GCPs)
 
-#### Orthoimage with GCP - step 1 preprocessing
-* Start the script `Ortho-1 (preGCP)`.
-  * Calculate a first alignment and mesh using the following parameters: 
-  * Key Point Limit: 10000
-  * Tie Point Limit: 1000
-  * Downsampling: 4
-  * Smoothing 10 times
+It is obligatory that you run consecutively  all three steps.
+
+#### Step 1 - preprocessing
+* Start the script `Ortho-1 (preGCP)`
+  * checks image Quality and drop images with  a quality less than 0.78
+  * calculate a first alignment and mesh using the following parameters: 
+  * key point limit: 10000
+  * tie point limit: 1000
+  * downsampling: 4
+  * smoothing 10 times
   * reduce overlap with a value of 8 
-  * Calculate a **second** alignment and mesh using the following parameters: 
-  * Key Point Limit: 40000
-  * Tie Point Limit: 4000
-  * Downsampling: 1
+  * calculate a **second** alignment and mesh using the following parameters: 
+  * key point limit: 40000
+  * tie point limit: 4000
+  * downsampling: 1
 
 
+#### Step 2 - link GCP to images
 
-#### Orthoimage with GCP - step 2 link GCP to images
+After the script is finished you may need to manually remove the few remaining start and landing area pictures. Otherwise you will find at the launching place some artefacts. To do so just right-click on the position in the model and choose filter by point. Mark and remove all pictures with the launching pad and repeated launching and landing images.
 
-After the script is finished, import your Ground Control Points (GCP) and align them manually in at least 4 images. Use about 30 % of the GCP as independent Checkpoints by unticking the checkbox in the Reference Pane.
+Then import your Ground Control Points (GCP) and align them manually in at least 4 images. Use about 30 % of the GCP as independent Checkpoints by unticking the checkbox in the Reference Pane.
 
 
-#### Orthoimage with GCP - step 3 create Orthoimage
+#### Step 3 - optimize point cloud and create Orthoimage
 
 * Use `Toolchain Ortho-2 (postGCP)`. This includes the following steps:
-  * optimize sparse cloud
+  * optimize sparse cloud using the point cloud statistics
   * create 2.5D Mesh
-  * smooth Mesh with factor 35
+  * smooth Mesh with factor 35 (empirical value for forests)
   * create Orthomosaic
 	  * surface: mesh
 	  * refine seamlines = True
   * export Orthomosaic, Seamlines and Marker error
   * export report
 
-### Worflow Orthoimage without GCP
-If you do NOT have Ground Control Points you can run an optimized workflow of orthoimages production by one click.
-1. Load images as above (you may load several distinct chunks for e.g. different time slots)
-2. Start the script `Toolchain noGCP`
+Finally you have a result that automatically tries to optimize the number of necessary cameras, minimize reprojection errors in the tie point cloud (sparse cloud), re-arrange the cameras and thus produce an reproducible orthoimage on the (statistically) best possible spatial resolution. 
 
+### Worflow Orthoimage without GCP
+If you do NOT have Ground Control Points you can run corresponding to the upper workflow, an one click production of optimized orthoimages. This maybe very useful if you have several repeated flights over an area and if you want to get an overview. Just put the image data of each flight in a seperate chunk and start the script `Toolchain noGCP` with the option to process all chunks.
 
 This will do the following steps:.
-* Check image Quality and drop images with  a quality less than 0.78
+* Check image Quality and drop images with  a quality less than 0.75
 * Calculate a first alignement and mesh with 
   * Key Point Limit: 10000
   * Tie Point Limit: 1000
