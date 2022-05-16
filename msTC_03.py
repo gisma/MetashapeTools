@@ -1,14 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jul  4 10:00:09 2019
 
-@author: marvin
-
-update: chris 2022-05-16
-
-"""
 
 import Metashape
 
@@ -21,15 +13,19 @@ def Toolchain03():
   ac = Metashape.app.getBool("Process all Chunks?")
   if ac:
     for chunk in Metashape.app.document.chunks:
+      createSparse(chunk)
+      optimizeSparsecloud(chunk)
       sparse2ortho(chunk)
       exportOrtho(chunk)
-      exportSeamlines(chunk)
+      #exportSeamlines(chunk)
       exportMarker(chunk)
   else:
       chunk = Metashape.app.document.chunk
+      createSparse(chunk)
+      optimizeSparsecloud(chunk)      
       sparse2ortho(chunk)
       exportOrtho(chunk)
-      exportSeamlines(chunk)
+      #exportSeamlines(chunk)
       exportMarker(chunk)
 
 
