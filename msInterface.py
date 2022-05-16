@@ -18,6 +18,11 @@ import sys
 import re
 import glob
 from os.path import expanduser
+from PySide2.QtGui import *
+from PySide2.QtCore import *
+from PySide2.QtWidgets import *
+import copy
+
 
 goal = sys.argv[1] if len(sys.argv) > 1 else 0
 imgPath = sys.argv[2] if len(sys.argv) > 2 else 0
@@ -39,7 +44,12 @@ def menuHelper(fun):
     
 
 
-menuSubsetImages = menuHelper(subsetImages)
+def show_message(msg):
+    msgBox = QMessageBox.Help()
+    print(msg)
+    msgBox.setText(msg)
+    msgBox.exec()
+#menuSubsetImages = menuHelper(subsetImages)
 
 
 def menuError():
@@ -68,6 +78,8 @@ def menuDensecloud():
             createDenseCloud(chunk)
     else:
         createDenseCloud(chunk)
+    
+     
 
 def menufasteCreateSparse():
     chunk = Metashape.app.document.chunk
@@ -87,10 +99,11 @@ def menuReproducibility():
     repro(chunk, RE = RE, k = k)
 
 def helpmsg():
-    message = "More information at: \                  https://github.com/gisma/MetashapeTools"
-    Metashape.app.messageBox(textwrap.fill(message, 40,drop_whitespace=False))
+    show_message("More information at:\nhttps://github.com/gisma/MetashapeTools")
     
-def Toolchain03(orthoRes=0.025):
+    
+def Toolchain03():
+  orthoRes = Metashape.app.getFloat("Target Resolution of Orthoimage in meter?",value =0.05)
   ac = Metashape.app.getBool("Process all Chunks?")
   if ac:
     for chunk in Metashape.app.document.chunks:
@@ -105,22 +118,22 @@ def Toolchain03(orthoRes=0.025):
       #exportSeamlines(chunk)
       exportMarker(chunk)
 
-   
-Metashape.app.addMenuItem("MetashapeTools/Reduce Overlap", menufasteCreateSparse)
+Metashape.app.addMenuSeparator("Workflow+/Tools+")   
+Metashape.app.addMenuItem("Workflow+/Tools+/Reduce Overlap", menufasteCreateSparse)
 # Metashape.app.addMenuItem("MetashapeTools/Subset Images", menuSubsetImages)
-Metashape.app.addMenuItem("MetashapeTools/Optimize Sparsecloud", menuOptimizeSparsecloud)
-Metashape.app.addMenuItem("MetashapeTools/Densecloud", menuDensecloud)
-Metashape.app.addMenuItem("MetashapeTools/Orthoimage", Toolchain03)
+Metashape.app.addMenuItem("Workflow+/Tools+/Optimize Sparsecloud", menuOptimizeSparsecloud)
+Metashape.app.addMenuItem("Workflow+/Tools+/Densecloud", menuDensecloud)
+Metashape.app.addMenuItem("Workflow+/Tools+/Orthoimage", Toolchain03)
 
-Metashape.app.addMenuSeparator("MetashapeTools/Utilities")
+Metashape.app.addMenuSeparator("Workflow+/Utilities")
 
-Metashape.app.addMenuItem("MetashapeTools/Utilities/Export Marker Error", menuError)
-Metashape.app.addMenuItem("MetashapeTools/Utilities/Export Tiepoint Error", menuTiepoints)
-Metashape.app.addMenuItem("MetashapeTools/Utilities/Reproducibility", menuReproducibility)
+Metashape.app.addMenuItem("Workflow+/Utilities/Export Marker Error", menuError)
+Metashape.app.addMenuItem("Workflow+/Utilities/Export Tiepoint Error", menuTiepoints)
+Metashape.app.addMenuItem("Workflow+/Utilities/Reproducibility", menuReproducibility)
 
-Metashape.app.addMenuSeparator("MetashapeTools/Standard Workflows")
+Metashape.app.addMenuSeparator("Workflow+/BestPractice")
 
-Metashape.app.addMenuItem("MetashapeTools/Help", helpmsg)
+Metashape.app.addMenuItem("Workflow+/Help", helpmsg)
 
 
 
