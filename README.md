@@ -35,7 +35,7 @@ All functions are based on image data so first do **always** the following:
 
 Note: You will be always ask if you want to perfrm the task for a singel chunk or all chunks. Choose wisely.
 
-## `The BestPractice Workflows`
+## `BestPractice`
 
 The `BestPractice` menu provides robust and well tested workflows that are primarily intended for processing large image data sets from (low budget) drone surveys. The problem that arises here is the huge amount of images with numerous starts and landings and a fixed continuous camera system (e.g. GoPro Hero 7, time lapse 2 sec). This way, 10k images are quickly collected, 80% of which are over sampled or of poor image quality and so on. The workflows identify low image quality and reduce the number of images by an inverse camera position calculation based on the preliminary surface model. This *dramatically* reduces the number of images, due to elimination of unusable taxiway and takeoff/landing image sequences. In addition the remaining cameras are activated and optimized. In this way, the quality and reproducibility can be significantly improved. At the same time, processing time is reduced by one to two orders of magnitude. 
 
