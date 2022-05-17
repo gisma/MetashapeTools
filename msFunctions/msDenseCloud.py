@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Sat Oct 12 13:32:25 2019
-
-@author: um2
-"""
+"""MetaShape common tool for dense cloud building
+    and filtering
+    @author Marvin Ludwig Chris Reudenbach
+    @copyright Copyright 2016-2022, gisma
+    @license GPL 3.0
+    @version 0.1.0
+    @maintainer Chris Reudenbach
+    @email creuden@gmail.com"""
 
 # import markers
 

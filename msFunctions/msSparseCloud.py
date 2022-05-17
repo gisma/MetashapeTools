@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Jul  4 10:00:09 2019
-
-@author: marvin
-
-
-"""
+"""MetaShape common tool for sparse cloud building
+    and filtering
+    @author Marvin Ludwig Chris Reudenbach
+    @copyright Copyright 2016-2022, gisma
+    @license GPL 3.0
+    @version 0.1.0
+    @maintainer Chris Reudenbach
+    @email creuden@gmail.com"""
 
 import Metashape
 

@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Mon Jul  8 09:47:53 2019
-
-@author: marvin
-"""
+"""MetaShalpe functions for
+    orthoimages
+    @author Marvin Ludwig Chris Reudenbach
+    @copyright Copyright 2016-2022, gisma
+    @license GPL 3.0
+    @version 0.1.0
+    @maintainer Chris Reudenbach
+    @email creuden@gmail.com"""
 
 import Metashape
+
 
 # control: do with all chunks or just the active one
 def sparse2ortho(chunk, orthoRes, doc = Metashape.app.document):

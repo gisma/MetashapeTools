@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+"""MetaShape common chain for first part of GCP
+    based creation of orthoimages
+    @author Marvin Ludwig Chris Reudenbach
+    @copyright Copyright 2016-2022, gisma
+    @license GPL 3.0
+    @version 0.1.0
+    @maintainer Chris Reudenbach
+    @email creuden@gmail.com"""
 
 import Metashape
 from msFunctions.msSparseCloud import *
 from msFunctions.msExportTiepointError import *
-
 
 def Toolchain01():
     
@@ -23,4 +29,4 @@ def Toolchain01():
         createSparse(chunk)
 
 
-Metashape.app.addMenuItem("MetashapeTools/Standard Workflows/Orthoimage-Step1 (preGCP)", Toolchain01)
+Metashape.app.addMenuItem("Workflow+/BestPractice/Orthoimage-pre-GCP", Toolchain01)

@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*- 
-
+"""MetaShape tools+
+    @author Marvin Ludwig Chris Reudenbach
+    @copyright Copyright 2016-2022, gisma
+    @license GPL 3.0
+    @version 0.1.0
+    @maintainer Chris Reudenbach
+    @email creuden@gmail.com"""
 
 import Metashape
 from msFunctions.msSubsetImages import subsetImages
@@ -23,7 +29,6 @@ from PySide2.QtCore import *
 from PySide2.QtWidgets import *
 import copy
 
-
 goal = sys.argv[1] if len(sys.argv) > 1 else 0
 imgPath = sys.argv[2] if len(sys.argv) > 2 else 0
 projName = sys.argv[3] if len(sys.argv) > 3 else 0
@@ -43,12 +48,9 @@ def menuHelper(fun):
     return menuFunc
     
 
-
-def show_message():
+def show_message(msg):
     msgBox = QMessageBox()
-    link = "https://github.com/gisma/MetashapeTools"
-    msg = "Get more information: <a href='%s'>GitHub Repo</a>" % link
-    print(msg)
+    #print(msg)
     msgBox.setText(msg)
     msgBox.exec()
     #menuSubsetImages = menuHelper(subsetImages)
@@ -101,7 +103,9 @@ def menuReproducibility():
     repro(chunk, RE = RE, k = k)
 
 def helpmsg():
-    show_message()
+    link = "https://github.com/gisma/MetashapeTools"
+    msg = "Get more information: <a href='%s'>GitHub Repo</a>" % link
+    show_message(msg)
     
     
 def Toolchain03():
