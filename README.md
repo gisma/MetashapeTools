@@ -2,9 +2,9 @@
 
 Scripts, utilities and optimized workflows for Agisoft Metashape with respect to reproducible orthoimage and dense cloud generation. 
 
-## Installation
+# Installation
 
-### Linux
+## Linux
 
 Copy the content of this repo to `~/.local/share/Agisoft/Metashape Pro/scripts/`
 
@@ -15,12 +15,11 @@ git clone https://github.com/gisma/MetashapeTools.git .
 
 ```
 
-### Windows
+## Windows
 
 Copy the content of this repo to `User/AppData/Local/AgiSoft/PhotoScan Pro/scripts`
 
-
-## `Workflow+`
+# `Workflow+`
 
 The `Workflow+` menu provides basic workflow scripts and a bunch of convenience functions to optimize (low budget) camera derived ortho imagery and point cloud generation for Agisoft Metashape.
 
