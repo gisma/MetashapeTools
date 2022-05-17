@@ -20,9 +20,9 @@ git clone https://github.com/gisma/MetashapeTools.git .
 Copy the content of this repo to `User/AppData/Local/AgiSoft/PhotoScan Pro/scripts`
 
 
-## Workflow+
+## `Workflow+`
 
-The `Workflow+` provides basic workflow scripts and a bunch of convenience functions to optimize (low budget) camera derived ortho imagery and point cloud generation for Agisoft Metashape.
+The `Workflow+` menu provides basic workflow scripts and a bunch of convenience functions to optimize (low budget) camera derived ortho imagery and point cloud generation for Agisoft Metashape.
 
 Follow the installation guide and you will find the new `Workflow+` Menu item at the Metashape main menu bar.
 
