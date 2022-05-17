@@ -124,20 +124,19 @@ def Toolchain03():
         #exportSeamlines(chunk)
         exportMarker(chunk)
 
+
+Metashape.app.addMenuSeparator("Workflow+/BestPractice")
+
 Metashape.app.addMenuSeparator("Workflow+/Tools+")   
 Metashape.app.addMenuItem("Workflow+/Tools+/Reduce Overlap", menufasteCreateSparse)
-# Metashape.app.addMenuItem("MetashapeTools/Subset Images", menuSubsetImages)
 Metashape.app.addMenuItem("Workflow+/Tools+/Optimize Sparsecloud", menuOptimizeSparsecloud)
 Metashape.app.addMenuItem("Workflow+/Tools+/Densecloud", menuDensecloud)
 Metashape.app.addMenuItem("Workflow+/Tools+/Orthoimage", Toolchain03)
 
 Metashape.app.addMenuSeparator("Workflow+/Utilities")
-
 Metashape.app.addMenuItem("Workflow+/Utilities/Export Marker Error", menuError)
 Metashape.app.addMenuItem("Workflow+/Utilities/Export Tiepoint Error", menuTiepoints)
 Metashape.app.addMenuItem("Workflow+/Utilities/Reproducibility", menuReproducibility)
-
-Metashape.app.addMenuSeparator("Workflow+/BestPractice")
 
 Metashape.app.addMenuItem("Workflow+/Help", helpmsg)
 
