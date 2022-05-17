@@ -26,7 +26,7 @@ The `Workflow+` provides basic workflow scripts and a bunch of convenience funct
 
 Follow the installation guide and you will find the new `Workflow+` Menu item at the Metashape main menu bar.
 
-### First things first - Load images 
+## First things first - Load images 
 All functions are based on image data so first do **always** the following:
 
 1. Add the images you want to process to the chunk.
@@ -35,15 +35,15 @@ All functions are based on image data so first do **always** the following:
 
 Note: You will be always ask if you want to perfrm the task for a singel chunk or all chunks. Choose wisely.
 
-### The BestPractice Workflows
+## `The BestPractice Workflows`
 
 The `BestPractice` menu provides robust and well tested workflows that are primarily intended for processing large image data sets from (low budget) drone surveys. The problem that arises here is the huge amount of images with numerous starts and landings and a fixed continuous camera system (e.g. GoPro Hero 7, time lapse 2 sec). This way, 10k images are quickly collected, 80% of which are over sampled or of poor image quality and so on. The workflows identify low image quality and reduce the number of images by an inverse camera position calculation based on the preliminary surface model. This *dramatically* reduces the number of images, due to elimination of unusable taxiway and takeoff/landing image sequences. In addition the remaining cameras are activated and optimized. In this way, the quality and reproducibility can be significantly improved. At the same time, processing time is reduced by one to two orders of magnitude. 
 
-#### Orthoimage Workflow integrating Ground Control Points (GCPs)
+## Orthoimage Workflow integrating Ground Control Points (GCPs)
 
 It is obligatory that you run consecutively  all three steps.
 
-##### `Orthoimage-pre-GCP` - Step 1
+### `Orthoimage-pre-GCP` - Step 1
 * Start the script `Orthoimage-pre-GCP`
   * checks image Quality and drop images with  a quality less than 0.78
   * calculate a first alignment and mesh using the following parameters: 
@@ -58,14 +58,14 @@ It is obligatory that you run consecutively  all three steps.
   * downsampling: 1
 
 
-##### Link GCP to images - Step 2
+### Link GCP to images - Step 2
 
 After the script is finished you *may* need to manually remove the few remaining start and landing area pictures. Otherwise you will find at the launching place some artefacts. To do so just right-click on the position in the model and choose filter by point. Mark and remove all pictures with the launching pad and repeated launching and landing images.
 
 The procedure is well documented. Dor instant watch this [YouTube](https://youtu.be/G09r5PXqhBc) or follow this [tutorial](https://agisoft.freshdesk.com/support/solutions/articles/31000153696-aerial-data-processing-with-gcps-orthomosaic-dem-generation). Import your Ground Control Points (GCP) and align them manually in at least 4 images. Use about 30 % of the GCP as independent checkpoints by unticking the check box in the reference pane. Save your project.
 
 
-#### `Orthoimage-post-GCP` - Step 3
+### `Orthoimage-post-GCP` - Step 3
 
 * Use `Orthoimage-post-GCP`. This includes the following steps:
   * optimize sparse cloud using the point cloud statistics
@@ -79,7 +79,7 @@ The procedure is well documented. Dor instant watch this [YouTube](https://youtu
 
 Finally you have a result that automatically tries to optimize the number of necessary cameras, minimize re projection errors in the tie point cloud (sparse cloud), re-arrange the cameras and thus produce an reproducible orthoimage on the (statistically) best possible spatial resolution. 
 
-#### `Orthoimage-no-GCP`
+### `Orthoimage-no-GCP`
 If you do *NOT* have Ground Control Points or not intending to squeeze the absolute position of the final product, you can run corresponding to the upper workflow, an one click production of optimized orthoimages. This maybe very useful if you have several repeated flights over an area and if you want to get an overview. Just put the image data of each flight in a seperate chunk and start the script `Toolchain noGCP` with the option to process all chunks.
 
 This will do the following steps:.
