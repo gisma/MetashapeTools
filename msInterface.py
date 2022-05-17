@@ -15,25 +15,25 @@ from msFunctions.msExportTiepointError import *
 from msFunctions.msOptimizeSparsecloud import *
 from msFunctions.msReproducibility import *
 from msFunctions.msDenseCloud import *
-import textwrap
 from msFunctions.msSparseCloud import *
 from msFunctions.msOrtho import *
 from msFunctions.msError import *
-import os
-import sys
-import re
-import glob
 from os.path import expanduser
 from PySide2.QtGui import *
 from PySide2.QtCore import *
 from PySide2.QtWidgets import *
+import os
+import sys
+import re
+import glob
+import textwrap
 import copy
 
-goal = sys.argv[1] if len(sys.argv) > 1 else 0
-imgPath = sys.argv[2] if len(sys.argv) > 2 else 0
-projName = sys.argv[3] if len(sys.argv) > 3 else 0
-alignQuality = sys.argv[4] if len(sys.argv) > 4 else 0
-orthoRes =  sys.argv[5] if len(sys.argv) > 5 else 0
+#goal = sys.argv[1] if len(sys.argv) > 1 else 0
+#imgPath = sys.argv[2] if len(sys.argv) > 2 else 0
+#projName = sys.argv[3] if len(sys.argv) > 3 else 0
+#alignQuality = sys.argv[4] if len(sys.argv) > 4 else 0
+#orthoRes =  sys.argv[5] if len(sys.argv) > 5 else 0
 
 
 # helper for optional all chunk processing:
