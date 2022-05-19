@@ -14,20 +14,19 @@ from msFunctions.msSparseCloud import *
 from msFunctions.msExportTiepointError import *
 
 def Toolchain09():
+  orthoRes = Metashape.app.getFloat("Target Resolution of Orthoimage in meter?",value =0.05)     
   ac = Metashape.app.getBool("Process all Chunks?")
   if ac:
       for chunk in Metashape.app.document.chunks:
           createSparse(chunk)
-          optimizeSparsecloud(chunk)
-          sparse2ortho(chunk)
+          sparse2ortho(chunk,orthoRes)
           exportOrtho(chunk)
           #exportSeamlines(chunk)
           exportMarker(chunk)
   else:
       chunk = Metashape.app.document.chunk
       createSparse(chunk)
-      optimizeSparsecloud(chunk)
-      sparse2ortho(chunk)
+      sparse2ortho(chunk,orthoRes)
       exportOrtho(chunk)
       #exportSeamlines(chunk)
       exportMarker(chunk)
