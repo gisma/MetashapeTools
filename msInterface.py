@@ -104,7 +104,7 @@ def menuReproducibility():
 
 def helpmsg():
     link = "https://github.com/gisma/MetashapeTools"
-    msg = "Get more information at the Workflow+: <a href='%s'>GitHub Repository</a>" % link
+    msg = "Get more information at the Ortho+: <a href='%s'>GitHub Repository</a>" % link
     show_message(msg)
     
     
@@ -125,21 +125,21 @@ def Toolchain03():
         exportMarker(chunk)
 
 
-Metashape.app.addMenuSeparator("Workflow+/BestPractice")
+Metashape.app.addMenuSeparator("Ortho+/BestPractice")
 
 
-Metashape.app.addMenuSeparator("Workflow+/Tools+")   
-Metashape.app.addMenuItem("Workflow+/Tools+/Reduce Overlap", menufasteCreateSparse)
+Metashape.app.addMenuSeparator("Ortho+/Tools+")   
+Metashape.app.addMenuItem("Ortho+/Tools+/Reduce Overlap", menufasteCreateSparse)
 
-Metashape.app.addMenuItem("Workflow+/Tools+/Densecloud", menuDensecloud)
-Metashape.app.addMenuItem("Workflow+/Tools+/Orthoimage", Toolchain03)
+Metashape.app.addMenuItem("Ortho+/Tools+/Densecloud", menuDensecloud)
+Metashape.app.addMenuItem("Ortho+/Tools+/Orthoimage", Toolchain03)
 
-Metashape.app.addMenuSeparator("Workflow+/Utilities")
-Metashape.app.addMenuItem("Workflow+/Utilities/Export Marker Error", menuError)
-Metashape.app.addMenuItem("Workflow+/Utilities/Export Tiepoint Error", menuTiepoints)
-Metashape.app.addMenuItem("Workflow+/Utilities/Reproducibility", menuReproducibility)
+Metashape.app.addMenuSeparator("Ortho+/Utilities")
+Metashape.app.addMenuItem("Ortho+/Utilities/Export Marker Error", menuError)
+Metashape.app.addMenuItem("Ortho+/Utilities/Export Tiepoint Error", menuTiepoints)
+Metashape.app.addMenuItem("Ortho+/Utilities/Reproducibility", menuReproducibility)
 
-Metashape.app.addMenuItem("Workflow+/Help", helpmsg)
+Metashape.app.addMenuItem("Ortho+/Help", helpmsg)
 
 
 

@@ -19,11 +19,11 @@ git clone https://github.com/gisma/MetashapeTools.git .
 
 Copy the content of this repo to `User/AppData/Local/AgiSoft/PhotoScan Pro/scripts`
 
-# `Workflow+`
+# `Ortho+`
 
-The `Workflow+` menu provides basic workflow scripts and a bunch of convenience functions to optimize (low budget) camera derived ortho imagery and point cloud generation for Agisoft Metashape.
+The `Ortho+` menu provides basic workflow scripts and a bunch of convenience functions to optimize (low budget) camera derived ortho imagery and point cloud generation for Agisoft Metashape.
 
-Follow the installation guide and you will find the new `Workflow+` Menu item at the Metashape main menu bar.
+Follow the installation guide and you will find the new `Ortho+` Menu item at the Metashape main menu bar.
 
 ## First things first - Load images 
 All functions are based on image data so first do **always** the following:
@@ -133,6 +133,7 @@ Export the Marker Error to a csv file.
 Export the Tie Point Errors from the sparse pointcloud to a csv file. This means   Reconstruction Uncertainty, Reprojection Error,Projection Accuracy, Image Count.
 
 ### `Orthomosaic Reproducibility`
+
 2. Import the GCP and align them.
 3. Start the script `Reproducibility`
 This will compute a set amount of orthomosaics (default is 5), which later can be analysed in R.
