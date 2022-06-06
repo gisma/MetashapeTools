@@ -42,7 +42,7 @@ The `BestPractice` menu provides robust and well tested workflows that are prima
 
 It is obligatory that you run consecutively  all three steps.
 
-### `Orthoimage-pre-GCP` - Step 1
+### `Step-1 Orthoimage-pre-GCP`
 * Start the script `Orthoimage-pre-GCP`
   * checks image Quality and drop images with  a quality less than 0.78
   * calculate a first alignment and mesh using the following parameters: 
@@ -57,14 +57,17 @@ It is obligatory that you run consecutively  all three steps.
   * downsampling: 1
 
 
-### Link GCP to images - Step 2
+### Step- 2 Link GCP to images ... 
 
 After the script is finished you *may* need to manually remove the few remaining start and landing area pictures. Otherwise you will find at the launching place some artefacts. To do so just right-click on the position in the model and choose filter by point. Mark and remove all pictures with the launching pad and repeated launching and landing images.
 
 The procedure is well documented. Dor instant watch this [YouTube](https://youtu.be/G09r5PXqhBc) or follow this [tutorial](https://agisoft.freshdesk.com/support/solutions/articles/31000153696-aerial-data-processing-with-gcps-orthomosaic-dem-generation). Import your Ground Control Points (GCP) and align them manually in at least 4 images. Use about 30 % of the GCP as independent checkpoints by unticking the check box in the reference pane. Save your project.
 
+### `Step-3 Optimize Sparsecloud`
+Performs an iterative optimisation of the sparse cloud to retrieve the best reprojection error. The tie pointcloud will be much more reliable for all later tasks
 
-### `Orthoimage-post-GCP` - Step 3
+
+### `Step-4 Orthoimage-post-GCP`
 
 * Use `Orthoimage-post-GCP`. This includes the following steps:
   * optimize sparse cloud using the point cloud statistics
@@ -104,8 +107,6 @@ This will do the following steps:.
 ### `Reduce Overlap`
 Creates a low quality first alignment and sparse pointcloud  and a smoothed (factor 10) mesh. Calculates then an inverse optimization of the needed images with the factor 8.
 
-### `Optimize Sparsecloud`
-Performs an iterative optimisation of the sparse cloud to retrieve the best reprojection error. The tie pointcloud will be much more reliable for all later tasks
 
 ### `Densecloud`
 Calculates a dense point cloud
