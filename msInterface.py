@@ -104,7 +104,7 @@ def menuReproducibility():
 
 def helpmsg():
     link = "https://github.com/gisma/MetashapeTools"
-    msg = "Get more information: <a href='%s'>GitHub Repo</a>" % link
+    msg = "Get more information at the Workflow+: <a href='%s'>GitHub Repository</a>" % link
     show_message(msg)
     
     
