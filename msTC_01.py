@@ -10,23 +10,10 @@
     @email creuden@gmail.com"""
 
 import Metashape
-from msFunctions.msSparseCloud import *
-from msFunctions.msExportTiepointError import *
-
-def Toolchain01():
-    
-    ac = Metashape.app.getBool("Process all Chunks?")
-    overl = 8
-    if ac:
-
-        for chunk in Metashape.app.document.chunks:
-            fastCreateSparse(chunk,overl = overl)
-            createSparse(chunk)
-    else:
-
-        chunk = Metashape.app.document.chunk
-        fastCreateSparse(chunk,overl = overl)
-        createSparse(chunk)
+def menuOptimizeSparsecloud():
+    chunk = Metashape.app.document.chunk
+    optimizeSparsecloud(chunk)
 
 
-Metashape.app.addMenuItem("Workflow+/BestPractice/Orthoimage-pre-GCP", Toolchain01)
+
+Metashape.app.addMenuItem("Workflow+/BestPractice/Step-2 Optimize Sparsecloud", menuOptimizeSparsecloud)

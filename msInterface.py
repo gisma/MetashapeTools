@@ -127,9 +127,10 @@ def Toolchain03():
 
 Metashape.app.addMenuSeparator("Workflow+/BestPractice")
 
+
 Metashape.app.addMenuSeparator("Workflow+/Tools+")   
 Metashape.app.addMenuItem("Workflow+/Tools+/Reduce Overlap", menufasteCreateSparse)
-Metashape.app.addMenuItem("Workflow+/Tools+/Optimize Sparsecloud", menuOptimizeSparsecloud)
+
 Metashape.app.addMenuItem("Workflow+/Tools+/Densecloud", menuDensecloud)
 Metashape.app.addMenuItem("Workflow+/Tools+/Orthoimage", Toolchain03)
 

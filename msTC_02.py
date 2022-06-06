@@ -16,22 +16,22 @@ from msFunctions.msError import *
 
 
 def Toolchain02():
-  orthoRes = Metashape.app.getFloat("Target Resolution of Orthoimage in meter?",value =0.05)  
+  orthoRes = Metashape.app.getFloat("Target Resolution of Orthoimage in meter?",value =0.03)  
   ac = Metashape.app.getBool("Process all Chunks?")
   if ac:
     for chunk in Metashape.app.document.chunks:
-      minioptimSparsecloud(chunk)
+      
       sparse2ortho(chunk,orthoRes)
       exportOrtho(chunk)
       #exportSeamlines(chunk)
       exportMarker(chunk)
   else:
       chunk = Metashape.app.document.chunk
-      minioptimSparsecloud(chunk)
+      
       sparse2ortho(chunk,orthoRes)
       exportOrtho(chunk)
       #exportSeamlines(chunk)
       exportMarker(chunk)
 
 
-Metashape.app.addMenuItem("Workflow+/BestPractice/Orthoimage-post-GCP", Toolchain02)
+Metashape.app.addMenuItem("Workflow+/BestPractice/Step-3 Orthoimage-post-GCP", Toolchain02)
