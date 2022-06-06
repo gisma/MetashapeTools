@@ -15,5 +15,5 @@ def menuOptimizeSparsecloud():
     optimizeSparsecloud(chunk)
 
 
-
-Metashape.app.addMenuItem("Workflow+/BestPractice/Step-2 Optimize Sparsecloud", menuOptimizeSparsecloud)
+Metashape.app.addMenuSeparator("Workflow+/BestPractice/Step-2 Add and Place GCP ...")
+Metashape.app.addMenuItem("Workflow+/BestPractice/Step-3 Optimize Sparsecloud", menuOptimizeSparsecloud)

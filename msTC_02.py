@@ -34,4 +34,4 @@ def Toolchain02():
       exportMarker(chunk)
 
 
-Metashape.app.addMenuItem("Workflow+/BestPractice/Step-3 Orthoimage-post-GCP", Toolchain02)
+Metashape.app.addMenuItem("Workflow+/BestPractice/Step-4 Orthoimage-post-GCP", Toolchain02)
