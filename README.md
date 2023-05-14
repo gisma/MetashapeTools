@@ -3,6 +3,7 @@
 Scripts, utilities and optimized workflows for Agisoft Metashape with respect to reproducible orthoimage and dense cloud generation. 
 
 # Installation
+If you are using Metashape 2.x you may sownload the current version. If you rely on Metashape 1.x please use the [V1.x release](https://github.com/gisma/MetashapeTools/releases/tag/v1.x)
 
 ## Linux
 
@@ -16,8 +17,10 @@ git clone https://github.com/gisma/MetashapeTools.git .
 ```
 
 ## Windows
-
+Metashape 1.x:
 Copy the content of this repo to `User/AppData/Local/AgiSoft/PhotoScan Pro/scripts`
+Metashape 2.x:
+Copy the content of this repo to `User/AppData/Local/AgiSoft/Metashape Pro/scripts`
 
 # `Ortho+`
 
