@@ -23,7 +23,7 @@ def createSparse(chunk, doc = Metashape.app.document, kpl = 40000, tpl = 4000):
 
 
 def fastCreateSparse(chunk, doc = Metashape.app.document, kpl = 10000, tpl = 1000, overl = 8):
-    chunk.analyzePhotos(chunk.cameras)
+    chunk.analyzeImages(chunk.cameras)
     for camera in chunk.cameras:
         if float(camera.meta["Image/Quality"]) < 0.75:
             camera.enabled = False
