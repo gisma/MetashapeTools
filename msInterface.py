@@ -98,12 +98,12 @@ def menuOptimizeSparsecloud():
 
 def menuReproducibility():
     RE = Metashape.app.getFloat(label = "Optimal Reprojection Error", value = 1)
-    RU = Metashape.app.getFloat(label = "Optimal Reprojection Error", value = 50)
-    PA = Metashape.app.getFloat(label = "Optimal Reprojection Error", value = 10)
+    RU = Metashape.app.getFloat(label = "Optimal Reconstruction Uncertainty", value = 50)
+    PA = Metashape.app.getFloat(label = "Optimal Projection Accuracy", value = 10)
     k = Metashape.app.getInt(label = "Times", value = 5)
     chunk = Metashape.app.document.chunk
     
-    repro(chunk, RE = RE, k = k)
+    repro(chunk, RE = RE, RU = RU, PA = PA , k = k)
 
 def helpmsg():
     link = "https://github.com/gisma/MetashapeTools"

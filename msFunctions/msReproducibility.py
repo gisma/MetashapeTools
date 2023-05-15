@@ -28,7 +28,7 @@ def createSparse(chunk, kpl, tpl, ds):
 
 
 
-def sparseFilter(chunk, RE, RU = RU, PA = PA):
+def sparseFilter(chunk, RE, RU, PA):
     MF = Metashape.TiePoints.Filter()
     # Reconstruction Accuracy Filter
     MF.init(chunk, Metashape.TiePoints.Filter.ReconstructionUncertainty)
@@ -53,9 +53,9 @@ def sparseFilter(chunk, RE, RU = RU, PA = PA):
     
     
 def createMesh(chunk):
-  chunk.buildModel(surface_type=Metashape.SurfaceType.HeightField, source_data = Metashape.DataSource.TiePointsData,
+	chunk.buildModel(surface_type=Metashape.SurfaceType.HeightField, source_data = Metashape.DataSource.TiePointsData,
 					interpolation = Metashape.Interpolation.EnabledInterpolation, face_count = Metashape.FaceCount.HighFaceCount)
-  chunk.smoothModel(35)	
+	chunk.smoothModel(35)	
 
 
 
