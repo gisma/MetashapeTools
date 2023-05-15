@@ -81,7 +81,7 @@ def menuDensecloud():
         for chunk in Metashape.app.document.chunks:
             createDenseCloud(chunk)
     else:
-        createDenseCloud(chunk)
+        createDenseCloud(Metashape.app.document.chunk)
     
      
 
