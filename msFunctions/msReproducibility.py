@@ -53,7 +53,7 @@ def sparseFilter(chunk, RE, RU = 50, PA = 10):
     
     
 def createMesh(chunk):
-  chunk.buildModel(surface_type=Metashape.SurfaceType.HeightField, source_data = Metashape.DataSource.PointCloudData,
+  chunk.buildModel(surface_type=Metashape.SurfaceType.HeightField, source_data = Metashape.DataSource.TiePointsData,
 					interpolation = Metashape.Interpolation.EnabledInterpolation, face_count = Metashape.FaceCount.HighFaceCount)
   chunk.smoothModel(35)	
 

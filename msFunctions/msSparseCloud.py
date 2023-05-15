@@ -31,7 +31,7 @@ def fastCreateSparse(chunk, doc = Metashape.app.document, kpl = 10000, tpl = 100
     chunk.matchPhotos(downscale = 4, reference_preselection = True,
                       keypoint_limit = kpl, tiepoint_limit = tpl, reset_matches = True)
     chunk.alignCameras(adaptive_fitting = True, reset_alignment = True)
-    chunk.buildModel(surface_type=Metashape.SurfaceType.HeightField, source_data = Metashape.DataSource.PointCloudData,
+    chunk.buildModel(surface_type=Metashape.SurfaceType.HeightField, source_data = Metashape.DataSource.TiePointsData,
                      interpolation = Metashape.Interpolation.EnabledInterpolation, face_count = Metashape.FaceCount.LowFaceCount)
     chunk.smoothModel(10)
     chunk.reduceOverlap(overlap=overl, use_selection=False)    
@@ -74,7 +74,7 @@ def exportSparse(chunk, doc = Metashape.app.document):
     crs = Metashape.CoordinateSystem("EPSG::25832")
 
     # export filtered tiepoints
-    chunk.exportPoints(str(outpath + "_" + str(chunk.label) + "_tiepoints.las"), source = Metashape.DataSource.PointCloudData, colors = True, projection = crs)
+    chunk.exportPoints(str(outpath + "_" + str(chunk.label) + "_tiepoints.las"), source = Metashape.DataSource.TiePointsData, colors = True, projection = crs)
         
     # save document
     doc.read_only = False

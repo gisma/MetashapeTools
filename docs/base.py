@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # script version 0.2.1
 """
@@ -298,8 +298,8 @@ def ortho(doc,chunk,PSPCF,goal):
                 #   Surface type in [Arbitrary, HeightField]
                 #   Interpolation mode in [EnabledInterpolation, DisabledInterpolation, Extrapolated]
                 #   Face count in [HighFaceCount, MediumFaceCount, LowFaceCount]
-                #   Data source in [PointCloudData, DenseCloudData, ModelData, ElevationData]
-                chunk.buildModel(surface=PhotoScan.SurfaceType.HeightField, source = PhotoScan.DataSource.PointCloudData, interpolation = PhotoScan.Interpolation.EnabledInterpolation, face_count = PhotoScan.FaceCount.LowFaceCount)
+                #   Data source in [TiePointsData, DenseCloudData, ModelData, ElevationData]
+                chunk.buildModel(surface=PhotoScan.SurfaceType.HeightField, source = PhotoScan.DataSource.TiePointsData, interpolation = PhotoScan.Interpolation.EnabledInterpolation, face_count = PhotoScan.FaceCount.LowFaceCount)
                 chunk.smoothModel(passes)               
                 # save project before buildDem and buildOrthomosaic is called
                 doc.save()
@@ -307,7 +307,7 @@ def ortho(doc,chunk,PSPCF,goal):
                 ### GENERATE DEM
                 #   Build elevation model for the chunk.
                 #   buildDem(source=DenseCloudData, interpolation=EnabledInterpolation[, projection ][, region ][, classes][, progress])
-                #   Data source in [PointCloudData, DenseCloudData, ModelData, ElevationData]
+                #   Data source in [TiePointsData, DenseCloudData, ModelData, ElevationData]
                 chunk.buildDem(source = PhotoScan.DataSource.ModelData, interpolation=PhotoScan.EnabledInterpolation)
                     
                 ### GENERATE ORTHOMOSAIC

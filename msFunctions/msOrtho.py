@@ -18,7 +18,7 @@ def sparse2ortho(chunk, orthoRes, doc = Metashape.app.document):
     # create mesh
     chunk.resetRegion()
     crs=Metashape.OrthoProjection("EPSG::25832")
-    chunk.buildModel(surface_type=Metashape.SurfaceType.HeightField, source_data = Metashape.DataSource.PointCloudData,
+    chunk.buildModel(surface_type=Metashape.SurfaceType.HeightField, source_data = Metashape.DataSource.TiePointsData,
                      interpolation = Metashape.Interpolation.EnabledInterpolation, face_count = Metashape.FaceCount.HighFaceCount)
     chunk.smoothModel(35)   
     
@@ -33,7 +33,7 @@ def sparse2ortho(chunk, orthoRes, doc = Metashape.app.document):
 
 def exportOrtho(chunk, doc = Metashape.app.document):
 
-    outpath = Metashape.app.document.path[:-4]  # project path without file extension
+    outpath = doc.path[:-4]  # project path without file extension
     
      # export ortho
     chunk.resetRegion()
