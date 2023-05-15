@@ -60,7 +60,7 @@ def createMesh(chunk):
 
 
 
-def repro(chunk, k, RE):
+def repro(chunk, k, RE,RU,PA):
 	current_doc = Metashape.app.document.path
 	outpath = path.dirname(current_doc)
 	for j in range(k):
