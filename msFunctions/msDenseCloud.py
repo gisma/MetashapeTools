@@ -21,7 +21,7 @@ def createDenseCloud(chunk):
     # build depth maps with moderate filter
     chunk.buildDepthMaps(downscale = 4, filter_mode = Metashape.FilterMode.ModerateFiltering)
     # build dense cloud
-    chunk.buildPointloud(point_colors=True, keep_depth=True, point_confidence = True)
+    chunk.buildPointCloud(point_colors=True, keep_depth=True, point_confidence = True)
     # export
     outpath = Metashape.app.document.path[:-4]
     chunk.exportPoints(path = str(outpath + "_" + str(chunk.label) + "_densecloud.laz"), sourceData = Metashape.DataSource.PointCloudData, save_colors = True, save_confidence = True)
