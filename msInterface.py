@@ -97,7 +97,9 @@ def menuOptimizeSparsecloud():
 
 
 def menuReproducibility():
-    RE = Metashape.app.getFloat(label = "Optimal Reprojection Error", value = 0)
+    RE = Metashape.app.getFloat(label = "Optimal Reprojection Error", value = 1)
+    RU = Metashape.app.getFloat(label = "Optimal Reprojection Error", value = 50)
+    PA = Metashape.app.getFloat(label = "Optimal Reprojection Error", value = 10)
     k = Metashape.app.getInt(label = "Times", value = 5)
     chunk = Metashape.app.document.chunk
     

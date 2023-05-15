@@ -28,7 +28,7 @@ def createSparse(chunk, kpl, tpl, ds):
 
 
 
-def sparseFilter(chunk, RE, RU = 50, PA = 10):
+def sparseFilter(chunk, RE, RU = RU, PA = PA):
     MF = Metashape.TiePoints.Filter()
     # Reconstruction Accuracy Filter
     MF.init(chunk, Metashape.TiePoints.Filter.ReconstructionUncertainty)
