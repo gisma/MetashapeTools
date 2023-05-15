@@ -10,7 +10,7 @@ Created on Thu Jul  4 10:00:09 2019
 
 import Metashape
 import csv
-
+from os import path
 
 ######
 
@@ -61,6 +61,8 @@ def createMesh(chunk):
 
 
 def repro(chunk, k, RE):
+	current_doc = Metashape.app.document.path
+	outpath = path.dirname(current_doc)
 	for j in range(k):
 		createSparse(chunk, kpl = 40000, tpl = 40000, ds = 1)
 		sparseFilter(chunk, RE)
