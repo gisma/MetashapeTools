@@ -29,25 +29,25 @@ def createSparse(chunk, kpl, tpl, ds):
 
 
 def sparseFilter(chunk, RE, RU = 50, PA = 10):
-    MF = Metashape.PointCloud.Filter()
+    MF = Metashape.TiePoints.Filter()
     # Reconstruction Accuracy Filter
-    MF.init(chunk, Metashape.PointCloud.Filter.ReconstructionUncertainty)
+    MF.init(chunk, Metashape.TiePoints.Filter.ReconstructionUncertainty)
     MF.selectPoints(RU)
-    chunk.point_cloud.removeSelectedPoints()
+    chunk.tie_points.removeSelectedPoints()
     chunk.optimizeCameras(fit_f=True, fit_cx=True, fit_cy = True, fit_b1=True, fit_b2 = True, fit_k1 = True, fit_k2 = True, fit_k3 = True, fit_k4=True, fit_p1 = True, fit_p2 =True)
     chunk.resetRegion()     
     
     # Reprojection Error Filter
-    MF.init(chunk, Metashape.PointCloud.Filter.ReprojectionError)
+    MF.init(chunk, Metashape.TiePoints.Filter.ReprojectionError)
     MF.selectPoints(RE)
-    chunk.point_cloud.removeSelectedPoints()
+    chunk.tie_points.removeSelectedPoints()
     chunk.optimizeCameras(fit_f=True, fit_cx=True, fit_cy = True, fit_b1=True, fit_b2 = True, fit_k1 = True, fit_k2 = True, fit_k3 = True, fit_k4=True, fit_p1 = True, fit_p2 =True)
     chunk.resetRegion()
     
     # Projection Accuracy Filter    
-    MF.init(chunk, Metashape.PointCloud.Filter.ProjectionAccuracy)
+    MF.init(chunk, Metashape.TiePoints.Filter.ProjectionAccuracy)
     MF.selectPoints(PA)
-    chunk.point_cloud.removeSelectedPoints()
+    chunk.tie_points.removeSelectedPoints()
     chunk.optimizeCameras(fit_f=True, fit_cx=True, fit_cy = True, fit_b1=True, fit_b2 = True, fit_k1 = True, fit_k2 = True, fit_k3 = True, fit_k4=True, fit_p1 = True, fit_p2 =True)
     chunk.resetRegion()
     
