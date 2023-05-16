@@ -10,9 +10,10 @@ import Metashape
 
 
 def exportMarker(chunk, doc = Metashape.app.document):
-	outpath = doc.path[:-4]
+	current_doc = Metashape.app.document.path
+	outpathr = str(path.dirname(current_doc) +  "/report/" )
 	
-	chunk.exportReference(path = str(outpath + "_" + str(chunk.label) + "_marker_error.txt"),
+    chunk.exportReference(path = str(outpath  + str(chunk.label) + "_marker_error.txt"),
 	 format = Metashape.ReferenceFormatCSV, items = Metashape.ReferenceItemsMarkers, columns = "noxyzXYZuvwUVW", delimiter = ",")
 	
 	

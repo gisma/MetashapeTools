@@ -48,31 +48,32 @@ def getErrors(chunk):
 def writeErrors(chunk, filename):
   
   # create file header colnames
-  fheader = ["x","y","z","RU","RE","PA","IC"]
+	fheader = ["x","y","z","RU","RE","PA","IC"]
   
   # call both functions for values
-  res = getPointCoords(chunk) + getErrors(chunk)
+	res = getPointCoords(chunk) + getErrors(chunk)
   
   # transpose output for csv writing
-  res = list(map(list, zip(*res)))
+	res = list(map(list, zip(*res)))
   
   # open file connection and write line by line
-  f = open(filename, "w")
-  w = csv.writer(f)
+	f = open(filename, "w")
+	w = csv.writer(f)
   
-  w.writerow(fheader)
-  w.writerows(res)
-  f.flush()
-  f.close()
+	w.writerow(fheader)
+	w.writerows(res)
+	f.flush()
+	f.close()
 
 
 
 def ExportTiepointError(chunk, filename = None):
-  
+    current_doc = Metashape.app.document.path
+	outpathr = str(path.dirname(current_doc) +  "/report/" )
   # create a filename of not specified
-  if not filename:
-    filename = str(Metashape.app.document.path[:-4] + "_" + str(chunk.label) + "tiepoint_errors.txt")
+	if not filename:
+		filename = str(outpath + str(chunk.label) + "tiepoint_errors.txt")
     
-  writeErrors(chunk, filename)
+	writeErrors(chunk, filename)
 
 

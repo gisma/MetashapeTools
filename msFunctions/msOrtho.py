@@ -33,13 +33,14 @@ def sparse2ortho(chunk, orthoRes, doc = Metashape.app.document):
 
 def exportOrtho(chunk):
 	current_doc = Metashape.app.document.path
-	outpath = path.dirname(current_doc)
+	outpatho = str(path.dirname(current_doc) +  "/ortho/" )
+	outpathr = str(path.dirname(current_doc) +  "/report/" )
 	print("****Outpath: ", outpath)
 	print("****cunk label: ", chunk.label)
     # outpath = Metashape.app.document.path[:-4]  # project path without file extension
     # export ortho
 	chunk.resetRegion()
-	chunk.exportRaster(str(outpath) + "/ortho/" + str(chunk.label) + "_orthomosaic.tif",
+	chunk.exportRaster(str(outpatho + str(chunk.label) + "_orthomosaic.tif"),
                             raster_transform = Metashape.RasterTransformNone,
                             save_kml=False, save_world=False, save_alpha=False,
                 white_background=True,
@@ -48,6 +49,6 @@ def exportOrtho(chunk):
 	Metashape.app.document.save()
 	
     # create report
-	chunk.exportReport(outpath + "/report/" + chunk.label + "_report.pdf") 
+	chunk.exportReport(outpathr  + chunk.label + "_report.pdf") 
 
 
