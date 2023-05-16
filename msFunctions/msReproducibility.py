@@ -65,7 +65,7 @@ def repro(chunk, k, RE,RU,PA):
 	outpath = path.dirname(current_doc)
 	for j in range(k):
 		createSparse(chunk, kpl = 40000, tpl = 40000, ds = 1)
-		sparseFilter(chunk, RE)
+		sparseFilter(chunk, RE,RU,PA)
 		createMesh(chunk)
 		chunk.buildOrthomosaic(surface_data=Metashape.ModelData, resolution = 0.05, refine_seamlines = True)
 		chunk.exportRaster(str(outpath + str(j+1) + "_ortho.tif"),
