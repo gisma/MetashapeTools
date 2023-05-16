@@ -23,14 +23,14 @@ def Toolchain01():
             if fcsc:
                 overl = Metashape.app.getFloat("Overlap Number?",value = 8.0)  
                 fastCreateSparse(chunk,overl = overl)
-            createSparse(chunk)
+        createSparse(chunk)
     else:
         chunk = Metashape.app.document.chunk
         if fcsc:
             overl = Metashape.app.getFloat("Overlap Number?",value = 8.0)
             fastCreateSparse(chunk,overl = overl)
-            fastCreateSparse(chunk,overl = overl)
-            createSparse(chunk)
+#            fastCreateSparse(chunk,overl = overl)
+        createSparse(chunk)
 
 
 Metashape.app.addMenuItem("Ortho+/BestPractice/Step-1 Orthoimage-pre-GCP", Toolchain01)

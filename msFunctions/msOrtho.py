@@ -18,7 +18,7 @@ def sparse2ortho(chunk, orthoRes, doc = Metashape.app.document):
     # create mesh
     chunk.resetRegion()
     crs=Metashape.OrthoProjection("EPSG::25832")
-    chunk.buildModel(surface_type=Metashape.SurfaceType.HeightField, source_data = Metashape.DataSource.TiePoints,
+    chunk.buildModel(surface_type=Metashape.SurfaceType.HeightField, source_data = Metashape.DataSource.TiePointsData,
                      interpolation = Metashape.Interpolation.EnabledInterpolation, face_count = Metashape.FaceCount.HighFaceCount)
     chunk.smoothModel(35)   
     
@@ -31,21 +31,23 @@ def sparse2ortho(chunk, orthoRes, doc = Metashape.app.document):
     
 
 
-def exportOrtho(chunk, doc = Metashape.app.document):
-	
-    outpath = path.dirname(doc.path)
+def exportOrtho(chunk):
+	current_doc = Metashape.app.document.path
+	outpath = path.dirname(current_doc)
+	print("****Outpath: ", outpath)
+	print("****cunk label: ", chunk.label)
     # outpath = Metashape.app.document.path[:-4]  # project path without file extension
-
-     # export ortho
-    chunk.resetRegion()
-    chunk.exportRaster(str(outpath) + "_" + str(chunk.label) + "_orthomosaic.tif",
+    # export ortho
+	chunk.resetRegion()
+	chunk.exportRaster(str(outpath) + "/ortho/" + str(chunk.label) + "_orthomosaic.tif",
                             raster_transform = Metashape.RasterTransformNone,
                             save_kml=False, save_world=False, save_alpha=False,
                 white_background=True,
                 source_data=Metashape.DataSource.OrthomosaicData)
     # save document
-    Metashape.app.document.save()
+	Metashape.app.document.save()
+	
     # create report
-    chunk.exportReport(outpath + "_" + chunk.label + "_report.pdf") 
+	chunk.exportReport(outpath + "/report/" + chunk.label + "_report.pdf") 
 
 

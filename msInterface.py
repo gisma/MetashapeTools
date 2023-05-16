@@ -18,6 +18,7 @@ from msFunctions.msDenseCloud import *
 from msFunctions.msSparseCloud import *
 from msFunctions.msOrtho import *
 from msFunctions.msError import *
+from msFunctions.gradual_selection import *
 from os.path import expanduser
 from PySide2.QtGui import *
 from PySide2.QtCore import *
@@ -98,8 +99,8 @@ def menuOptimizeSparsecloud():
 
 def menuReproducibility():
     RE = Metashape.app.getFloat(label = "Optimal Reprojection Error", value = 1)
-    RU = Metashape.app.getFloat(label = "Optimal Reconstruction Uncertainty", value = 50)
-    PA = Metashape.app.getFloat(label = "Optimal Projection Accuracy", value = 10)
+    RU = Metashape.app.getFloat(label = "Optimal Reconstruction Uncertainty", value = 10)
+    PA = Metashape.app.getFloat(label = "Optimal Projection Accuracy", value = 2)
     k = Metashape.app.getInt(label = "Times", value = 5)
     chunk = Metashape.app.document.chunk
     
@@ -127,12 +128,24 @@ def Toolchain03():
         #exportSeamlines(chunk)
         exportMarker(chunk)
 
+def gradual_selection():
+    ac = Metashape.app.getBool("Process all Chunks?")
+    if ac:
+        for chunk in Metashape.app.document.chunks:
+            gradualSelection(chunk)
+    else:
+        chunk = Metashape.app.document.chunk
+        gradualSelection(chunk)
+
+
 
 Metashape.app.addMenuSeparator("Ortho+/BestPractice")
 
 
 Metashape.app.addMenuSeparator("Ortho+/Tools+")   
 Metashape.app.addMenuItem("Ortho+/Tools+/Reduce Overlap", menufasteCreateSparse)
+
+Metashape.app.addMenuItem("Ortho+/Tools+/Iterative Sparse Cloud filtering", gradual_selection)
 
 Metashape.app.addMenuItem("Ortho+/Tools+/Densecloud", menuDensecloud)
 Metashape.app.addMenuItem("Ortho+/Tools+/Orthoimage", Toolchain03)

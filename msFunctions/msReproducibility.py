@@ -61,10 +61,10 @@ def createMesh(chunk):
 
 
 def repro(chunk, k, RE,RU,PA):
-	current_doc = Metashape.app.document.path
-	outpath = path.dirname(current_doc)
+    current_doc = Metashape.app.document.path
+    outpath = str(path.dirname(current_doc) +  "/repro-test/" )
 	for j in range(k):
-		createSparse(chunk, kpl = 40000, tpl = 40000, ds = 1)
+		createSparse(chunk, kpl = 40000, tpl = 40000, ds = 0)
 		sparseFilter(chunk, RE,RU,PA)
 		createMesh(chunk)
 		chunk.buildOrthomosaic(surface_data=Metashape.ModelData, resolution = 0.05, refine_seamlines = True)
