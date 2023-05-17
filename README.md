@@ -110,9 +110,10 @@ This will do the following steps:.
 * export Orthomosaic, Seamlines and Marker error
 * export a report
 
-### [Iterative Sparse Cloud filtering](https://github.com/skycontrast/Agisoft) 
+### Iterative Sparse Cloud filtering
 
-An slightly adapted script for iterative gradual filtering of the sparse point cloud.  The filetring is performed in three steps with the following arguments:
+Provides slightly adapted script of [Del Bell](https://github.com/skycontrast/Agisoft) 
+ for iterative gradual filtering of the sparse point cloud. It is a very convenient tool for improvining the sparse point cloud in a reproducible way. It may be subset the step 3 of the ForestOrtho if no GCPs are available. The filtering is performed in three steps with the following arguments:
 
 #### STEP 1: Reconstruction Uncertainty as RU
 
