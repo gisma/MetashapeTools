@@ -33,4 +33,4 @@ def Toolchain01():
         createSparse(chunk)
 
 
-Metashape.app.addMenuItem("Ortho+/BestPractice/Step-1 Orthoimage-pre-GCP", Toolchain01)
+Metashape.app.addMenuItem("Ortho+/BestPractice/ForestOrtho/Step-1 Orthoimage-pre-GCP", Toolchain01)

@@ -18,6 +18,7 @@ from msFunctions.msDenseCloud import *
 from msFunctions.msSparseCloud import *
 from msFunctions.msOrtho import *
 from msFunctions.msError import *
+from msTC_09 import *
 from msFunctions.gradual_selection import *
 from os.path import expanduser
 from PySide2.QtGui import *
@@ -111,7 +112,6 @@ def helpmsg():
     msg = "Get more information at the Ortho+: <a href='%s'>GitHub Repository</a>" % link
     show_message(msg)
     
-    
 def Toolchain03():
     orthoRes = Metashape.app.getFloat("Target Resolution of Orthoimage in meter?",value =0.05)
     ac = Metashape.app.getBool("Process all Chunks?")
@@ -137,23 +137,34 @@ def gradual_selection():
         chunk = Metashape.app.document.chunk
         gradualSelection(chunk)
 
+def toolchain09():
+    ac = Metashape.app.getBool("Process all Chunks?")
+    if ac:
+        for chunk in Metashape.app.document.chunks:
+            Toolchain09(chunk)
+    else:
+        chunk = Metashape.app.document.chunk
+        Toolchain09(chunk)
 
-
-Metashape.app.addMenuSeparator("Ortho+/BestPractice")
-
+Metashape.app.addMenuSeparator("Ortho+/BestPractice/ForestOrtho")
 
 Metashape.app.addMenuSeparator("Ortho+/Tools+")   
-Metashape.app.addMenuItem("Ortho+/Tools+/Reduce Overlap", menufasteCreateSparse)
+
+Metashape.app.addMenuItem("Ortho+/Tools+/All-in-one Orthoimage-no-GCP", toolchain09)
+
+
 
 Metashape.app.addMenuItem("Ortho+/Tools+/Iterative Sparse Cloud filtering", gradual_selection)
 
-Metashape.app.addMenuItem("Ortho+/Tools+/Densecloud", menuDensecloud)
-Metashape.app.addMenuItem("Ortho+/Tools+/Orthoimage", Toolchain03)
+Metashape.app.addMenuItem("Ortho+/Tools+/Reduce Overlap", menufasteCreateSparse)
+
+Metashape.app.addMenuItem("Ortho+/Tools+/Create Densecloud", menuDensecloud)
+Metashape.app.addMenuItem("Ortho+/Tools+/Create Orthoimage", Toolchain03)
 
 Metashape.app.addMenuSeparator("Ortho+/Utilities")
 Metashape.app.addMenuItem("Ortho+/Utilities/Export Marker Error", menuError)
 Metashape.app.addMenuItem("Ortho+/Utilities/Export Tiepoint Error", menuTiepoints)
-Metashape.app.addMenuItem("Ortho+/Utilities/Reproducibility", menuReproducibility)
+Metashape.app.addMenuItem("Ortho+/Tools+/Reproducibility Runs", menuReproducibility)
 
 Metashape.app.addMenuItem("Ortho+/Help", helpmsg)
 

@@ -31,5 +31,3 @@ def Toolchain09():
       #exportSeamlines(chunk)
       exportMarker(chunk)
 
-Metashape.app.addMenuSeparator("Ortho+/BestPractice/------------------------------------------")
-Metashape.app.addMenuItem("Ortho+/BestPractice/All-in-one Orthoimage-no-GCP", Toolchain09)
