@@ -154,6 +154,12 @@ If you do not want to optimize the camera positions and the sparse cloud you sho
 
 It is recommended run beforehand the `Optimize Sparsecloud` script. This will print out a Reprojection Error for which the checkpoint error reach its minimum.
 
+### `Reproducibility Runs`
+
+The script `Reproducibility Runs` will compute a set of orthomosaics (default is 5), with defined static filtering. So it generates with using exactlx the same setup orthoimages which later can be analysed for the error and validtiy.
+
+
+
 ## `Utilities`
 
 ### `Export Marker Error`
@@ -161,13 +167,6 @@ Export the Marker Error to a csv file.
 
 ### `Export Tiepoint Error`
 Export the Tie Point Errors from the sparse pointcloud to a csv file. This means   Reconstruction Uncertainty, Reprojection Error,Projection Accuracy, Image Count.
-
-### `Orthomosaic Reproducibility`
-
-2. Import the GCP and align them.
-3. Start the script `Reproducibility`
-This will compute a set amount of orthomosaics (default is 5), which later can be analysed in R.
-
 
 
 
