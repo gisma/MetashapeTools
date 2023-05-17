@@ -11,7 +11,7 @@ Created on Thu Jul  4 10:00:09 2019
 import Metashape
 import csv
 import statistics
-
+from os import path
 
 
 

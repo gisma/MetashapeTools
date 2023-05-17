@@ -95,11 +95,6 @@ def menufasteCreateSparse():
     fastCreateSparse(chunk)
 
 
-def menuOptimizeSparsecloud():
-    chunk = Metashape.app.document.chunk
-    optimizeSparsecloud(chunk)
-
-
 
 def menuReproducibility():
     RE = Metashape.app.getFloat(label = "Optimal Reprojection Error", value = 1)

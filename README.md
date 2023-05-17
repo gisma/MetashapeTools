@@ -37,9 +37,9 @@ All functions are based on image data so first do **always** the following:
 
 Note: You will be always ask if you want to perfrm the task for a singel chunk or all chunks. Choose wisely.
 
-## `BestPractice`
+## `BestPractice ForestOrtho`
 
-The `BestPractice` menu provides robust and well tested workflows that are primarily intended for processing large image data sets from (low budget) drone surveys. The problem that arises here is the huge amount of images with numerous starts and landings and a fixed continuous camera system (e.g. GoPro Hero 7, time lapse 2 sec). This way, 10k images are quickly collected, 80% of which are over sampled or of poor image quality and so on. The workflows identify low image quality and reduce the number of images by an inverse camera position calculation based on the preliminary surface model. This *dramatically* reduces the number of images, due to elimination of unusable taxiway and takeoff/landing image sequences. In addition the remaining cameras are activated and optimized. In this way, the quality and reproducibility can be significantly improved. At the same time, processing time is reduced by one to two orders of magnitude. 
+The `BestPractice` menu provides robust and well tested workflows that are primarily intended for processing large image data sets from (low budget) drone surveys designed for **forest areas**. The problem that arises here is the huge amount of images with numerous starts and landings and a fixed continuous camera system (e.g. GoPro Hero 7, time lapse 2 sec). This way, 10k images are quickly collected, 80% of which are over sampled or of poor image quality and so on. The workflows identify low image quality and reduce the number of images by an inverse camera position calculation based on the preliminary surface model. This *dramatically* reduces the number of images, due to elimination of unusable taxiway and takeoff/landing image sequences. In addition the remaining cameras are activated and optimized. In this way, the quality and reproducibility can be significantly improved. At the same time, processing time is reduced by one to two orders of magnitude. 
 
 ## Orthoimage Workflow integrating Ground Control Points (GCPs)
 
@@ -67,7 +67,7 @@ After the script is finished you *may* need to manually remove the few remaining
 The procedure is well documented. Dor instant watch this [YouTube](https://youtu.be/G09r5PXqhBc) or follow this [tutorial](https://agisoft.freshdesk.com/support/solutions/articles/31000153696-aerial-data-processing-with-gcps-orthomosaic-dem-generation). Import your Ground Control Points (GCP) and align them manually in at least 4 images. Use about 30 % of the GCP as independent checkpoints by unticking the check box in the reference pane. Save your project.
 
 ### `Step-3 Optimize Sparsecloud`
-Performs an iterative optimisation of the sparse cloud to retrieve the best reprojection error. The tie pointcloud will be much more reliable for all later tasks
+Performs an gradual filtering ofthe sparse cloud to retrieve a better reprojection error. The tie pointcloud will be much more reliable for all later tasks. Note it works only with GCP markers i.e. step 2.
 
 
 ### `Step-4 Orthoimage-post-GCP`
@@ -83,6 +83,10 @@ Performs an iterative optimisation of the sparse cloud to retrieve the best repr
   * export report
 
 Finally you have a result that automatically tries to optimize the number of necessary cameras, minimize re projection errors in the tie point cloud (sparse cloud), re-arrange the cameras and thus produce an reproducible orthoimage on the (statistically) best possible spatial resolution. 
+
+
+
+## `Tools+`
 
 ### `Orthoimage-no-GCP`
 If you do *NOT* have Ground Control Points or not intending to squeeze the absolute position of the final product, you can run corresponding to the upper workflow, an one click production of optimized orthoimages. This maybe very useful if you have several repeated flights over an area and if you want to get an overview. Just put the image data of each flight in a seperate chunk and start the script `Toolchain noGCP` with the option to process all chunks.
@@ -106,7 +110,29 @@ This will do the following steps:.
 * export Orthomosaic, Seamlines and Marker error
 * export a report
 
-## `Tools+`
+### [Iterative Sparse Cloud filtering](https://github.com/skycontrast/Agisoft) 
+
+An slightly adapted script for iterative gradual filtering of the sparse point cloud.  The filetring is performed in three steps with the following arguments:
+
+#### STEP 1: Reconstruction Uncertainty as RU
+
+	def_RU_PercentageRemove = 20    # percentage of point removed for each iteration
+	def_RU_ThreshMax        = 45    # stop iteration if this percentage of points is removed
+	def_RU_Value            = 10    # stop iteration if this RU value is reached (i.e the largest value in all keypoints)
+
+#### STEP 2 : Projection Accuracy as PA
+
+	def_PA_PercentageRemove = 20    # threshold percentage of point removed for each iteration
+	def_PA_ThreshMax        = 45    # stop iteration loop if this percentage of points is removed (i.e % when starting Step 2)
+	def_PA_Value            = 2.   # stop iteration loop if this PA value is reached (largest value)
+
+#### STEP 3: Reprojection Error as RE
+
+	def_RE_PercentageRemove = 5     # threshold percentage of point removed for each iteration
+	def_RE_MaxIterations    = 10    # max iterations for step 3
+	def_RE_Value            = 0.5   # stop iteration if this RE value is reached (largest value)
+	def_perc_total_thresh   = 80    # threshold percentage of points to remove from initial point cloud
+
 ### `Reduce Overlap`
 Creates a low quality first alignment and sparse pointcloud  and a smoothed (factor 10) mesh. Calculates then an inverse optimization of the needed images with the factor 8.
 
@@ -140,7 +166,6 @@ Export the Tie Point Errors from the sparse pointcloud to a csv file. This means
 2. Import the GCP and align them.
 3. Start the script `Reproducibility`
 This will compute a set amount of orthomosaics (default is 5), which later can be analysed in R.
-
 
 
 

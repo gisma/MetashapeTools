@@ -10,6 +10,7 @@
     @email creuden@gmail.com"""
 
 import Metashape
+import math, sys
 
 def createSparse(chunk, doc = Metashape.app.document, kpl = 40000, tpl = 4000 ,ds = 1):
     
