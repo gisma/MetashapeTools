@@ -13,7 +13,7 @@ import Metashape
 from msFunctions.msSparseCloud import *
 from msFunctions.msExportTiepointError import *
 
-def Toolchain01():
+def forestortho_01():
     
     ac = Metashape.app.getBool("Process all Chunks?")
     fcsc = Metashape.app.getBool("Process Reduce overlap?")
@@ -33,4 +33,4 @@ def Toolchain01():
         createSparse(chunk)
 
 
-Metashape.app.addMenuItem("Ortho+/BestPractice/ForestOrtho/Step-1 Orthoimage-pre-GCP", Toolchain01)
+Metashape.app.addMenuItem("Ortho+/BestPractice/ForestOrtho/Step-1 Orthoimage-pre-GCP", forestortho_01)

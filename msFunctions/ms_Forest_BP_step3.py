@@ -10,6 +10,8 @@
     @email creuden@gmail.com"""
 
 import Metashape
+from msFunctions.gradual_selection import *
+
 def menuOptimizeSparsecloud():
     chunk = Metashape.app.document.chunk
     optimizeSparsecloud(chunk)
@@ -25,4 +27,6 @@ Metashape.app.addMenuItem("Ortho+/BestPractice/ForestOrtho/Step-2 Add and Place 
 
 
 
-Metashape.app.addMenuItem("Ortho+/BestPractice/ForestOrtho/Step-3 Optimize Sparsecloud", menuOptimizeSparsecloud)
+Metashape.app.addMenuItem("Ortho+/BestPractice/ForestOrtho/Step-3 Optimize Sparsecloud/Static Filtering", menuOptimizeSparsecloud)
+Metashape.app.addMenuItem("Ortho+/BestPractice/ForestOrtho/Step-3 Optimize Sparsecloud/Iterative Filtering", gradualSelection)
+

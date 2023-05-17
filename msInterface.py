@@ -18,7 +18,10 @@ from msFunctions.msDenseCloud import *
 from msFunctions.msSparseCloud import *
 from msFunctions.msOrtho import *
 from msFunctions.msError import *
-from msTC_09 import *
+from msFunctions.ms_Forest_BP_step1 import *
+from msFunctions.ms_Forest_BP_step3 import *
+from msFunctions.ms_Forest_BP_step4 import *
+
 from msFunctions.gradual_selection import *
 from os.path import expanduser
 from PySide2.QtGui import *

@@ -68,7 +68,7 @@ def writeErrors(chunk, filename):
 
 
 def ExportTiepointError(chunk, filename = None):
-    current_doc = Metashape.app.document.path
+	current_doc = Metashape.app.document.path
 	outpathr = str(path.dirname(current_doc) +  "/report/" )
   # create a filename of not specified
 	if not filename:
