@@ -11,7 +11,11 @@
 
 import Metashape
 from msFunctions.msSparseCloud import *
+from msFunctions.msOrtho import *
 from msFunctions.msExportTiepointError import *
+from msFunctions.msError import *
+from msFunctions.gradual_selection import *
+from msFunctions.msOptimizeSparsecloud import *
 from os import path
 
 

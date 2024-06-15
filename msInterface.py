@@ -144,7 +144,7 @@ Metashape.app.addMenuSeparator("Ortho+/BestPractice/ForestOrtho")
 
 Metashape.app.addMenuSeparator("Ortho+/Tools+")   
 
-Metashape.app.addMenuItem("Ortho+/Tools+/All-in-one Orthoimage-no-GCP", Toolchain09)
+Metashape.app.addMenuItem("Ortho+/Tools+/All-in-one Orthoimage-no-GCP", toolchain09)
 
 
 

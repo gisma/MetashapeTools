@@ -73,7 +73,7 @@ def exportSparse(chunk, doc = Metashape.app.document):
 
     current_doc = Metashape.app.document.path
     outpath = str(path.dirname(current_doc) +  "/tlas/" )
-    crs = Metashape.CoordinateSystem("EPSG::25832")
+    #crs = Metashape.CoordinateSystem("EPSG::4326")
 
     # export filtered tiepoints
     chunk.exportPoints(str(outpath + "_" + str(chunk.label) + "_tiepoints.las"), source_data = Metashape.DataSource.TiePoints, colors = True, projection = crs)
