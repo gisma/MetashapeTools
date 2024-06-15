@@ -21,6 +21,7 @@ from msFunctions.msError import *
 from msFunctions.ms_Forest_BP_step1 import *
 from msFunctions.ms_Forest_BP_step3 import *
 from msFunctions.ms_Forest_BP_step4 import *
+from msFunctions.msTC_09 import *
 
 from msFunctions.gradual_selection import *
 from os.path import expanduser
@@ -135,20 +136,15 @@ def gradual_selection():
         chunk = Metashape.app.document.chunk
         gradualSelection(chunk)
 
-def toolchain09():
-    ac = Metashape.app.getBool("Process all Chunks?")
-    if ac:
-        for chunk in Metashape.app.document.chunks:
-            Toolchain09(chunk)
-    else:
-        chunk = Metashape.app.document.chunk
-        Toolchain09(chunk)
+def Toolchain09():
+    chunk = Metashape.app.document.chunk
+    toolchain09(chunk)
 
 Metashape.app.addMenuSeparator("Ortho+/BestPractice/ForestOrtho")
 
 Metashape.app.addMenuSeparator("Ortho+/Tools+")   
 
-Metashape.app.addMenuItem("Ortho+/Tools+/All-in-one Orthoimage-no-GCP", toolchain09)
+Metashape.app.addMenuItem("Ortho+/Tools+/All-in-one Orthoimage-no-GCP", Toolchain09)
 
 
 
