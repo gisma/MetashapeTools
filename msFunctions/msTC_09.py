@@ -22,10 +22,12 @@ from os import path
 def toolchain09():
   orthoRes = Metashape.app.getFloat("Target Resolution of Orthoimage in meter?",value =0.05)     
   ac = Metashape.app.getBool("Process all Chunks?")
+  spcfilter = Metashape.app.getBool("Use iterative tie point filtering?")
   if ac:
       for chunk in Metashape.app.document.chunks:
           createSparse(chunk)
-          gradualselection(chunk)
+          if spcfilter:
+            gradualselection(chunk)
           sparse2ortho(chunk,orthoRes)
           exportOrtho(chunk)
           #exportSeamlines(chunk)
@@ -33,7 +35,8 @@ def toolchain09():
   else:
       chunk = Metashape.app.document.chunk
       createSparse(chunk)
-      gradualselection(chunk)
+      if spcfilter:
+        gradualselection(chunk)
       sparse2ortho(chunk,orthoRes)
       exportOrtho(chunk)
       #exportSeamlines(chunk)
