@@ -27,7 +27,7 @@ def toolchain09():
       for chunk in Metashape.app.document.chunks:
           createSparse(chunk)
           if spcfilter:
-            gradualselection(chunk)
+            gradualSelection(chunk)
           sparse2ortho(chunk,orthoRes)
           exportOrtho(chunk)
           #exportSeamlines(chunk)
@@ -36,7 +36,7 @@ def toolchain09():
       chunk = Metashape.app.document.chunk
       createSparse(chunk)
       if spcfilter:
-        gradualselection(chunk)
+        gradualSelection(chunk)
       sparse2ortho(chunk,orthoRes)
       exportOrtho(chunk)
       #exportSeamlines(chunk)
